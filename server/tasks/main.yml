@@ -4,15 +4,18 @@
   package:
     name: dhcp
     state: present
+
 - name: directory for dhcp config snippets is present
   file:
     path: /etc/dhcpd.d
     state: directory
+
 - name: dhcp server is configured
   file:
     path: /etc/dhcpd.conf
-    state: present
+    state: file
+
 - name: dhcp server is running
   service:
     name: dhcpd
-    state: running
+    state: started
